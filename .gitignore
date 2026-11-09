@@ -1,0 +1,8 @@
+# Dependencies (installed by pnpm; the published bundle has no build step)
+node_modules/
+pnpm-lock.yaml
+
+# Logs and editor/OS noise
+*.log
+.DS_Store
+Thumbs.db

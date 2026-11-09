@@ -1,0 +1,74 @@
+{
+  "name": "dsh-hindsight-sync",
+  "version": "1.0.0",
+  "type": "module",
+  "description": "DSH conversation tab that writes the current session transcript into a self-hosted Hindsight memory bank, with per-device connection settings.",
+  "license": "MIT",
+  "author": "MaxwellJay256",
+  "keywords": [
+    "dsh",
+    "dsh-plugin",
+    "deepseek-harness",
+    "hindsight",
+    "memory",
+    "sync"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/MaxwellJay256/dsh-hindsight-sync.git"
+  },
+  "homepage": "https://github.com/MaxwellJay256/dsh-hindsight-sync#readme",
+  "bugs": {
+    "url": "https://github.com/MaxwellJay256/dsh-hindsight-sync/issues"
+  },
+  "icon": "./icon.svg",
+  "engines": {
+    "node": ">=22.6",
+    "dsh": ">=0.2.2-rc.1 <0.2.3-0"
+  },
+  "dependencies": {
+    "@deepseek-ai/schemastery": "~3.19.0"
+  },
+  "peerDependencies": {
+    "@deepseek-ai/schemastery": "~3.19.0"
+  },
+  "exports": {
+    ".": "./index.js",
+    "./client": "./client.js",
+    "./cordis.patch.yml": "./cordis.patch.yml",
+    "./locale/*.json": "./locale/*.json",
+    "./icon": "./icon.svg",
+    "./package.json": "./package.json"
+  },
+  "files": [
+    "index.js",
+    "client.js",
+    "lib/",
+    "cordis.patch.yml",
+    "locale/*.json",
+    "icon.svg",
+    "scripts/",
+    "README.md",
+    "LICENSE"
+  ],
+  "scripts": {
+    "build": "node scripts/build.mjs",
+    "test": "node scripts/selftest.mjs && node scripts/clienttest.mjs"
+  },
+  "dsh": {
+    "bundle": {
+      "patch": "./cordis.patch.yml"
+    },
+    "client": {
+      "platform": "web",
+      "immediately": true,
+      "inject": [
+        "@deepseek-ai/dsh-api-session-controller",
+        "@deepseek-ai/dsh-client-connection",
+        "@deepseek-ai/dsh-client-ui-conversation",
+        "@deepseek-ai/dsh-client-ui-renderer",
+        "@deepseek-ai/dsh-client-locale"
+      ]
+    }
+  }
+}

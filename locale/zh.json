@@ -1,0 +1,6 @@
+{
+  "meta": {
+    "title": "Hindsight 同步",
+    "description": "在对话视图旁加一个 Hindsight 页签，把当前会话的对话写入自托管的 Hindsight 记忆库；服务地址与记忆库名在插件自己的设置页里配置。"
+  }
+}
